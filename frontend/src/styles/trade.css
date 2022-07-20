@@ -18,6 +18,15 @@
   background-color: var(--color-blanc);
   min-height: 65vh;
 }
+
+.trade-filter-title h2 {
+    padding: 0 0 0 6rem;
+    font-weight: 600;
+}
+
+.trade-filter-list li {
+    padding: 0 0 0 8rem;
+}
 .trade-filter {
   grid-area: 2 / 1 / 6 / 2;
   background-color: var(--color-blanc);
@@ -27,10 +36,57 @@
 
 .trade-header-title h1 {
   font-weight: 600;
-  color: var(--color-noir);
+  color: var(--color-bleu);
   font-size: 2.625rem;
   width: 50rem;
   padding: 2rem 0 0 6rem;
   text-decoration: underline;
   text-decoration-color: var(--color-rose) ;
+}
+
+.trade-list-search {
+    display: flex;
+    align-items: center;
+    margin: 0rem 0 0 5rem;
+    padding: 0 0 0 0rem;
+    background-color: var(--color-bleu);
+    width: 50rem;
+    height: 5rem;
+    border-radius: 100px;
+}
+
+.trade-list-search input[type="text"] {
+    position: relative;
+    border: none;
+    border-radius: 100px 0 0 100px;
+    background-color: var(--color-blanc);
+    resize: none;
+    outline: none;
+    margin: 0 0 0 0.5rem;
+    width: 36rem;
+    height: 80%;
+    padding: 0 0 0 2rem;
+    z-index: 0;
+}
+
+
+.trade-list-search button {
+    position: absolute;
+    color: var(--color-blanc);
+    width: 20rem;
+    border-radius: 0 100px 100px 0;
+    border-left: 0.5rem solid var(--color-bleu);
+    background-color: var(--color-bleuinter);
+    height: 4rem;
+    margin: 0 0.5rem 0rem 29.5rem;
+    transition: 0.4s;
+    z-index: 1;
+}
+
+.trade-list-search button:hover {
+background-color: var(--color-bleufonce);
+}
+
+.trade-list-result {
+    margin: 4rem 0 0 5rem;
 }
