@@ -10,10 +10,13 @@ function Home() {
 
 const sloganRef = useRef(null)
 const searchRef = useRef(null)
+const pictureRef = useRef(null)
 
 const tl = gsap.timeline();
 
 useEffect(() => {
+  tl.from(pictureRef.current, {duration:2, x:-2000})
+  tl.to(pictureRef.current, {duration:0, x:1})
   tl.from(sloganRef.current, {duration:2, x:1500, opacity: 0})
   tl.to(sloganRef.current, {duration:0, x:1, opacity:1})
   tl.from(searchRef.current, {duration:1, y:100, opacity: 0})
@@ -25,6 +28,7 @@ useEffect(() => {
 
   return (
     <div
+    ref={pictureRef}
     className="home-content"
     style={{
       backgroundImage: `url(${homePic})`,
