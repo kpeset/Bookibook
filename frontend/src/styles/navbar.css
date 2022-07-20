@@ -58,4 +58,5 @@ header {
 
 .btn-register:hover {
     background-color: var(--color-bleuinter);
+    color: var(--color-blanc);
 }
