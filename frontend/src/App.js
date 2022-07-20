@@ -1,6 +1,11 @@
-import Home from "./Pages/Home";
-import Page1 from "./Pages/Page1";
-import Page2 from "./Pages/Page2";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Trade from "./pages/Trade";
+import Auth from "./pages/Auth";
+import Dashboard from "./pages/Dashboard";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -8,11 +13,15 @@ function App() {
   return (
   
   <div>
+    <Navbar />
   <Routes>
   <Route path="/" element={<Home />} />
-  <Route path="/page1" element={<Page1 />} />
-  <Route path="/page2" element={<Page2 />} />
+  <Route path="/trade" element={<Trade />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/auth" element={<Auth />} />
+  <Route path="/dashboard" element={<Dashboard />} />
   </Routes>
+  <Footer />
   </div>
 )}
 

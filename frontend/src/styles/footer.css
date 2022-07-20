@@ -1,0 +1,21 @@
+.footer-content {
+    height: 15vh;
+    background-color: var(--color-bleu);
+    color: var(--color-blanc);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 16rem 0 16rem;
+}
+
+.footer-content a {
+    font-family: var(--font-title);
+    text-decoration: none;
+    color: var(--color-blanc);
+    font-weight: 100;
+    font-size: 0.75rem;
+}
+
+.footer-content a:hover {
+    color: var(--color-rose);
+text-decoration: underline;}

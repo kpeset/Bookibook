@@ -1,0 +1,61 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15vh;
+    background-color: var(--color-bleu);
+    width: 100vw;
+  }
+  
+  header .nav-btn {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.8rem;
+  }
+  
+  nav {
+    width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+  
+  nav a {
+  margin: 0 2rem ;
+  font-family: var(--font-title);
+    text-decoration: none;
+    color: var(--color-blanc);
+    font-weight: 200;
+    transition: 0.4s;
+  }
+  
+  nav a:hover {
+    color: var(--color-rose);
+  }
+  
+  .logo {
+      height: 4rem;
+      width: auto;
+      padding-left: 2rem;
+  }
+
+  .navbar-logo {
+    width: 30%;
+  }
+  
+ .btn-register {
+    background-color: var(--color-bleufonce);
+    padding: 1rem 2rem 1rem 2rem;
+    border-radius: 100px;
+    font-weight: 400;
+ }
+
+.btn-register:hover {
+    background-color: var(--color-bleuinter);
+}
