@@ -1,0 +1,66 @@
+.login-content {
+  height: 70vh;
+}
+
+.login-second-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  float: right;
+  width: 60vw;
+  background-color: var(--color-blancgris);
+  height: 70vh;
+  border-radius: 300px 0 0 300px;
+}
+
+.login-second-part h1 {
+  font-weight: 600;
+  color: var(--color-bleu);
+  font-size: 3rem;
+}
+
+.login-second-part h2 {
+    text-align: center;
+  font-weight: 600;
+  color: var(--color-bleu);
+  font-size: 1.5rem;
+}
+
+
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form input[type="email"] {
+  margin: 0.5rem 0 0.5rem 0;
+  border: 3px solid var(--color-blanc);
+  background-color: var(--color-blanc);
+  resize: none;
+  outline: none;
+  width: 30rem;
+  height: 3rem;
+  padding: 0 0 0 2rem;
+  border-radius: 100px 100px 100px 100px;
+  transition: 0.7s;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus,
+.login-form input[type="email"]:focus {
+  border-color: var(--color-bleu);
+}
+
+.login-form button {
+    margin: 0 0 0 7rem;
+  background-color: var(--color-bleufonce);
+  padding: 1rem 0 1rem 0;
+  border-radius: 100px;
+  font-weight: 400;
+  color: var(--color-blanc);
+  width: 16rem;
+  transition: 0.4s;
+}
+
+.login-form button:hover {
+  background-color: var(--color-bleuinter);
+}

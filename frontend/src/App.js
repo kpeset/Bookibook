@@ -1,7 +1,7 @@
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Trade from "./pages/Trade";
-import Auth from "./pages/Auth";
+import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 
@@ -19,7 +19,7 @@ function App() {
   <Route path="/" element={<Home />} />
   <Route path="/trade" element={<Trade />} />
   <Route path="/about" element={<About />} />
-  <Route path="/auth" element={<Auth />} />
+  <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
   <Route path="/dashboard" element={<Dashboard />} />
   </Routes>

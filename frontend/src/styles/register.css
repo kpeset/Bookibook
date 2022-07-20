@@ -1,70 +1,66 @@
-
 .register-content {
-    height:70vh
+  height: 70vh;
 }
 
 .register-second-part {
-    width: 60vw;
-    background-color: #f8c630;
-    height: 70vh;
-    border-radius:0  300px 300px 0;
+  width: 60vw;
+  background-color: #f8c630;
+  height: 70vh;
+  border-radius: 0 300px 300px 0;
 }
 
 .register-second-part h1 {
-    font-weight: 600;
-color: var(--color-blanc);
-font-size: 3rem;
-width: 50rem;
-padding: 2rem 0 0 5rem ;
+  font-weight: 600;
+  color: var(--color-blanc);
+  font-size: 3rem;
+  width: 50rem;
+  padding: 2rem 0 0 5rem;
 }
 
 .register-second-part h2 {
-    font-weight: 600;
-color: var(--color-noir);
-font-size: 1.5rem;
-width: 50rem;
-padding: 0rem 0 0 5rem ;
+  font-weight: 600;
+  color: var(--color-noir);
+  font-size: 1.5rem;
+  width: 50rem;
+  padding: 0rem 0 0 5rem;
 }
 
 .signin-form {
-    padding: 1.3rem 0 0 5rem;
+  padding: 1.3rem 0 0 5rem;
 }
-
 
 .signin-form input[type="text"],
 .signin-form input[type="password"],
 .signin-form input[type="email"] {
-margin: 0.5rem 0 0.5rem 0;
-border: 3px solid var(--color-blanc);
-background-color: var(--color-blanc);
-resize: none;
-outline: none;
-width: 30rem;
-height: 3rem;
-padding: 0 0 0 2rem;
-border-radius: 100px 100px 100px 100px;
-transition: 0.7s;
+  margin: 0.5rem 0 0.5rem 0;
+  border: 3px solid var(--color-blanc);
+  background-color: var(--color-blanc);
+  resize: none;
+  outline: none;
+  width: 30rem;
+  height: 3rem;
+  padding: 0 0 0 2rem;
+  border-radius: 100px 100px 100px 100px;
+  transition: 0.7s;
 }
 
 .signin-form input[type="text"]:focus,
 .signin-form input[type="password"]:focus,
-.signin-form input[type="email"]:focus{
-border-color: var(--color-bleu);
-
+.signin-form input[type="email"]:focus {
+  border-color: var(--color-bleu);
 }
 
 .signin-form button {
-    background-color: var(--color-bleufonce);
-    padding: 1rem 2rem 1rem 2rem;
-    border-radius: 100px;
-    font-weight: 400;
-    color: var(--color-blanc);
-    margin: 1rem 0  0 7.5rem;
-    width: 16rem;
-    transition: 0.4s;
-
+  background-color: var(--color-bleufonce);
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 100px;
+  font-weight: 400;
+  color: var(--color-blanc);
+  margin: 1rem 0 0 7.5rem;
+  width: 16rem;
+  transition: 0.4s;
 }
 
 .signin-form button:hover {
-    background-color: var(--color-bleuinter);
+  background-color: var(--color-bleuinter);
 }

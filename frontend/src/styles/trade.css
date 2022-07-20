@@ -1,0 +1,36 @@
+.trade-content {
+  min-height: 70vh;
+  background-color: var(--color-blancgris);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.trade-header {
+  grid-area: 1 / 1 / 2 / 6;
+  min-height: 5vh;
+  background-color: var(--color-blanc);
+}
+.trade-list {
+  grid-area: 2 / 2 / 6 / 6;
+  background-color: var(--color-blanc);
+  min-height: 65vh;
+}
+.trade-filter {
+  grid-area: 2 / 1 / 6 / 2;
+  background-color: var(--color-blanc);
+  min-height: 65vh;
+  border-right: 1px solid black;
+}
+
+.trade-header-title h1 {
+  font-weight: 600;
+  color: var(--color-noir);
+  font-size: 2.625rem;
+  width: 50rem;
+  padding: 2rem 0 0 6rem;
+  text-decoration: underline;
+  text-decoration-color: var(--color-rose) ;
+}

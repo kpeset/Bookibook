@@ -13,32 +13,23 @@ function Register() {
   const fourthFormRef = useRef(null);
   const btnFormRef = useRef(null);
 
-
   const tl = gsap.timeline();
 
-
   useEffect(() => {
-    tl.from(formRef.current, {duration:2, x:-2000, opacity:0})
-    tl.to(formRef.current, {duration:0, x:1, opacity:1})
-    tl.from(titleRef.current, { duration: 1, opacity: 0 });
-    tl.to(titleRef.current, { duration: 0, opacity: 1 });
-    tl.from(textRef.current, { duration: 1, opacity: 0 });
-    tl.to(textRef.current, { duration: 0, opacity: 1 });
-    tl.fromTo(firstFormRef.current, { x:-800}, {x:1, duration:1} );
-    tl.fromTo(secondFormRef.current, { x:-800}, {x:1, duration:1} );
-    tl.fromTo(thirdFormRef.current, { x:-800}, {x:1, duration:1} );
-    tl.fromTo(fourthFormRef.current, { x:-800}, {x:1, duration:1} );
-    tl.fromTo(btnFormRef.current, { opacity:0}, {opacity:1, duration:1} );
-   
-  
-  
-  
-  
-  }, [])
+    tl.fromTo(formRef.current, { x: -2000 }, { x: 1, duration: 2 });
+    tl.fromTo(titleRef.current, { opacity: 0 }, { duration: 1, opacity: 1 });
+    tl.fromTo(textRef.current, { opacity: 0 }, { duration: 1, opacity: 1 });
+    tl.fromTo(firstFormRef.current, { x: -800 }, { x: 1, duration: 1 });
+    tl.fromTo(secondFormRef.current, { x: -800 }, { x: 1, duration: 1 });
+    tl.fromTo(thirdFormRef.current, { x: -800 }, { x: 1, duration: 1 });
+    tl.fromTo(fourthFormRef.current, { x: -800 }, { x: 1, duration: 1 });
+    tl.fromTo(btnFormRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
+  }, []);
 
   return (
     <div
-      className="register-content" ref={formRef}
+      className="register-content"
+      ref={formRef}
       style={{
         backgroundImage: `url(${registerPic})`,
         backgroundSize: "110vh",
@@ -48,20 +39,30 @@ function Register() {
     >
       <div className="register-second-part">
         <div ref={titleRef}>
-        <h1>Nous Rejoindre</h1>
+          <h1>Nous Rejoindre</h1>
         </div>
         <div ref={textRef}>
-        <h2>
-          Enregistrez-vous et ayez accès à la plus grande communauté de partage
-          de livres !
-        </h2>
+          <h2>
+            Enregistrez-vous sur Bookibook et ayez accès à la plus grande
+            communauté de partage de livres !
+          </h2>
         </div>
-       
+
         <form className="signin-form">
-          <input type="text" name="pseudo" placeholder="Votre pseudo" ref={firstFormRef}/>
+          <input
+            type="text"
+            name="pseudo"
+            placeholder="Votre pseudo"
+            ref={firstFormRef}
+          />
           <br />
 
-          <input type="email" name="email" placeholder="Votre email" ref={secondFormRef}/>
+          <input
+            type="email"
+            name="email"
+            placeholder="Votre email"
+            ref={secondFormRef}
+          />
           <br />
 
           <input

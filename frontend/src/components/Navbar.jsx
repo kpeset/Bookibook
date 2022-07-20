@@ -15,7 +15,7 @@ function Navbar() {
           <div className="navbar-first-part">
             <a href="/">Accueil</a>
             <a href="/trade">Echanges</a>
-            <a href="/about">A Propos</a>
+            <a href="/">A Propos</a>
           </div>
           <div className="navbar-second-part">
             <a href="/login">Se Connecter</a>
