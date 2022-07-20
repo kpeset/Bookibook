@@ -2,6 +2,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Trade from "./pages/Trade";
 import Auth from "./pages/Auth";
+import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 
 import Navbar from "./components/Navbar";
@@ -19,6 +20,7 @@ function App() {
   <Route path="/trade" element={<Trade />} />
   <Route path="/about" element={<About />} />
   <Route path="/auth" element={<Auth />} />
+  <Route path="/register" element={<Register />} />
   <Route path="/dashboard" element={<Dashboard />} />
   </Routes>
   <Footer />

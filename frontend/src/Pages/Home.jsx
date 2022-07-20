@@ -23,7 +23,12 @@ useEffect(() => {
   tl.to(searchRef.current, {duration:1, y:1, opacity: 1})
 
 
+
+
+
 }, [])
+
+
 
 
   return (
