@@ -1,6 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import("../styles/bookCard.css");
 
+
 function BookCard({ book, errorImg }) {
+
+const navigate = useNavigate()
+
+
+const saveIdBook = () => {
+localStorage.setItem("isbn", book.industryIdentifiers[0].identifier)
+navigate("/details")
+}
+
   return (
     <div className="book-card-content">
       <div className="book-card-picture">
@@ -18,7 +29,7 @@ function BookCard({ book, errorImg }) {
         <h1>{book.authors}</h1>
       </div>
       <div className="book-card-info">
-        <button>DETAILS</button>
+        <button onClick={saveIdBook}>DETAILS</button>
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import Trade from "./pages/Trade";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import BookDetails from "./pages/BookDetails";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -18,6 +19,7 @@ function App() {
   <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/trade" element={<Trade />} />
+  <Route path="/details" element={<BookDetails />} />
   <Route path="/about" element={<About />} />
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
