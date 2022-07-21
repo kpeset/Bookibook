@@ -9,6 +9,7 @@ const successRoute = require("./routes/success");
 const getUsersRoute = require("./routes/getUsers");
 const addBookRoute = require("./routes/addBook");
 const gotBookRoute = require("./routes/gotBook");
+const usersBookRoute = require("./routes/usersBookRoute")
 
 
 
@@ -37,6 +38,7 @@ app.use("/api/success", successRoute);
 app.use("/api/users", getUsersRoute);
 app.use("/api/addBook/", addBookRoute);
 app.use("/api/gotBook/", gotBookRoute);
+app.use("/api/usersBook/", usersBookRoute);
 
 
 

@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios"
 import { gsap } from "gsap";
 import("../styles/oneBookDetails.css");
 
 function OneBookDetails({ book, errorImg }) {
+
+  const [val, setVal] = useState([])
 
   const leftRef = useRef(null);
   const rightRef = useRef(null);
@@ -52,6 +54,30 @@ function OneBookDetails({ book, errorImg }) {
   }
 
 
+
+  const sendGetRequest = async () => {
+    try {
+        const resp = await axios.post('http://localhost:8080/api/usersBook/', {
+          finduserbook: localStorage.getItem("isbn")
+        });
+        setVal(resp);
+    } catch (err) {
+        // Handle Error Here
+        console.error(err);
+    }
+};
+
+useEffect(() => {
+
+  sendGetRequest()
+
+},[])
+
+  const testcl = () => {
+    console.log(val)
+    console.log(localStorage.getItem("isbn"))
+  }
+ 
   return (
     <div className="onebookdetails-content">
       <div className="onebookdetails-flex">
@@ -112,6 +138,7 @@ function OneBookDetails({ book, errorImg }) {
           </div>
           <div className="onebookdetails-btn-got">
           <button type="button" onClick={gotBook}>JE POSSEDE CE LIVRE</button>
+          <button type="button" onClick={testcl}>test</button>
           </div>
         </div>
       </div>
