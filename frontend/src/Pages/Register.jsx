@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import  axios from "axios";
 import { gsap } from "gsap";
 import registerPic from "../assets/img_register.jpg";
 import("../styles/register.css");
@@ -26,6 +27,53 @@ function Register() {
     tl.fromTo(btnFormRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
   }, []);
 
+  const [registerValue, setRegisterValue] = useState({
+    pseudo: "",
+    email: "",
+    password: "",
+    checkPassword: "",
+  });
+
+  const handleSubmitRegister = (e) => {
+    e.preventDefault();
+    //Ici je sauvegarde les states de mon formulaire d'inscription
+    if (registerValue.password !== registerValue.checkPassword) {
+      alert("Les mots de passe ne sont pas identiques");
+    } else {
+      axios
+        .post("http://localhost:8080/api/register/", {
+          pseudo: registerValue.pseudo,
+          email: registerValue.email,
+          password: registerValue.password,
+        })
+        .then(function (response) {
+          console.log(response);
+          alert("Votre compte a été crée avec succès.");
+          window.location = "/";
+        })
+        .catch(function (error) {
+          const mailAlreadyExist = error.response.data;
+          if (
+            mailAlreadyExist ===
+            "Votre email est déjà liée à un compte existant."
+          ) {
+            alert(mailAlreadyExist);
+            window.location = "/";
+          } else {
+            alert("Votre mot de passe doit contenir au moins 6 caractères.");
+            window.location = "/";
+          }
+        });
+    }
+  };
+
+  const handleChangeRegister = (event) => {
+    setRegisterValue({
+      ...registerValue,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <div
       className="register-content"
@@ -48,10 +96,12 @@ function Register() {
           </h2>
         </div>
 
-        <form className="signin-form">
+        <form className="signin-form" onSubmit={handleSubmitRegister}>
           <input
             type="text"
             name="pseudo"
+            onChange={handleChangeRegister}
+            value={registerValue.pseudo}
             placeholder="Votre pseudo"
             ref={firstFormRef}
           />
@@ -60,6 +110,8 @@ function Register() {
           <input
             type="email"
             name="email"
+            onChange={handleChangeRegister}
+            value={registerValue.email}
             placeholder="Votre email"
             ref={secondFormRef}
           />
@@ -68,14 +120,19 @@ function Register() {
           <input
             type="password"
             name="password"
+            onChange={handleChangeRegister}
             ref={thirdFormRef}
+            value={registerValue.password}
+
             placeholder="Choisissez un mot de passe"
           />
           <br />
           <input
             type="password"
             name="checkPassword"
+            onChange={handleChangeRegister}
             ref={fourthFormRef}
+            value={registerValue.checkPassword}
             placeholder="Vérifiez votre mot de passe"
           />
           <br />

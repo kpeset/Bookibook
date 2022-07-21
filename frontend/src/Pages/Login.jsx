@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import axios from "axios"
 import { gsap } from "gsap";
 import loginPic from "../assets/img_login.jpg";
 import("../styles/login.css");
@@ -23,6 +24,49 @@ function Login() {
     tl.fromTo(btnFormRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
   }, []);
 
+  const [loginValue, setLoginValue] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmitLogin = (e) => {
+    //Ici je sauvegarde les states de mon formulaire d'inscription
+    e.preventDefault();
+    axios
+      .post(
+        "http://localhost:8080/api/login/",
+        {
+          email: loginValue.email,
+          password: loginValue.password,
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        window.location = "/trade";
+      })
+      .catch(function (error) {
+        const mailNotExist = error.response.data;
+        if (mailNotExist === "Ce compte n'existe pas.") {
+          alert(mailNotExist);
+          window.location = "/";
+        } else {
+          alert("Email ou mot de passe incorrect.");
+          window.location = "/";
+        }
+      });
+  };
+
+  const handleChangeLogin = (event) => {
+    setLoginValue({
+      ...loginValue,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+
   return (
     <div
       className="login-content"
@@ -44,10 +88,11 @@ function Login() {
           </h2>
         </div>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleSubmitLogin}>
 
 
-          <input type="email" name="email" placeholder="Votre email" ref={firstFormRef}/>
+          <input type="email" name="email" placeholder="Votre email" ref={firstFormRef}     value={loginValue.email}
+              onChange={handleChangeLogin}/>
           <br />
 
           <input
@@ -55,6 +100,8 @@ function Login() {
             type="password"
             name="password"
             placeholder="Entrez votre mot de passe"
+            value={loginValue.password}
+            onChange={handleChangeLogin}
           />
           <br />
 
