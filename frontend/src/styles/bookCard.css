@@ -1,6 +1,6 @@
 .book-card-content {
     border: 1px solid var(--color-bleu);
-    width: 16rem;
+    width: 17rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,26 +9,46 @@
     padding: 1rem;
     margin: 2rem;
 }
+    
+.book-card-info {height: 4rem;
+}
 
 .book-card-title h1 {
 font-weight: 600;
+
+}
+
+.book-card-auteur,
+.book-card-title {
+    height: 3rem;
+    overflow: hidden;
+    text-align: center;
+
 }
 
 .book-card-auteur h1 {
     font-weight: 200;
     font-style: italic;
+
 }
 
-.book-card-add button {
-    margin-top: 1rem;
+.book-card-info button {
     background-color: var(--color-rose);
     padding: 0.5rem 3rem;
     border-radius: 100px;
     transition: 0.7s;
     color: white;
+    margin: 1rem 0 0 0;
+    
 }
 
-.book-card-add button:hover {
+.book-card-info button:hover {
     background-color: var(--color-rosefonce);
 
 }
+
+.book-card-picture img {
+    width: 128px;
+    height: 193px;
+}
+

@@ -17,7 +17,7 @@ function BookCard({ book, errorImg }) {
       <div className="book-card-auteur">
         <h1>{book.authors}</h1>
       </div>
-      <div className="book-card-add">
+      <div className="book-card-info">
         <button>DETAILS</button>
       </div>
     </div>
