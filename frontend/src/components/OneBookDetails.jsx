@@ -35,11 +35,15 @@ function OneBookDetails({ book, errorImg }) {
              
             </div>
           </div>
-          <div className="onebookdetails-desc"><p>{book.description}</p></div>
+          <div className="onebookdetails-desc"><h2>RÉSUMÉ</h2><p>{book.description}</p></div>
 
         </div>
 
         <div className="onebookdetails-right-part">
+          <div className="onebookdetails-book-status">
+            <h1>Oups...<br /> Ce livre n'est pas encore disponible pour un échange.</h1>
+          </div>
+          <div className="onebookdetails-btn-add"><button type="button">AJOUTER A MA LISTE</button></div>
          
         </div>
       </div>
