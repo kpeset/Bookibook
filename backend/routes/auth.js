@@ -75,7 +75,9 @@ router.post("/login", async (req, res) => {
       sameSite: "none",
       secure: true,
     })
-    .send(`Mon token : ${token}`);
+    .json({message:"Connexion réussie", utilisateur:req.body.email,
+  cookie:token
+});
 });
 
 module.exports = router;

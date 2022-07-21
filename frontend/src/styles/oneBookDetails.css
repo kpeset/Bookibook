@@ -41,6 +41,7 @@
 }
 
 .onebookdetails-right-part {
+ height: 41rem;
   background-color: var(--color-blancgris);
   border-top: 2rem solid var(--color-blanc);
   border-bottom: 2rem solid var(--color-blanc);
@@ -56,7 +57,7 @@
   border-left: 2rem solid var(--color-blanc);
   border-bottom: 2rem solid var(--color-blanc);
  width: 57.762vw;
- min-height: 18rem;
+ min-height: 23rem;
 }
 
 .onebookdetails-desc h2 {
@@ -83,14 +84,29 @@
 }
 
 .onebookdetails-btn-add button {
+  min-width: 26rem;
   color: var(--color-blanc);
   border-radius: 100px;
-  padding: 1rem 12rem;
+  padding: 1rem 0 1rem 0;
   background-color: var(--color-rose);
-  margin: 0 0.5rem 0 0;
   transition: 0.4s;
 }
 
 .onebookdetails-btn-add button:hover {
 background-color: var(--color-rosefonce);
+}
+
+
+.onebookdetails-btn-got button {
+  width: 26rem;
+  color: var(--color-blanc);
+  border-radius: 100px;
+  margin: 2rem 0 0 0;
+  padding: 1rem 0rem;
+  background-color: var(--color-bleufonce);
+  transition: 0.4s;
+}
+
+.onebookdetails-btn-got button:hover {
+background-color: var(--color-bleuinter);
 }

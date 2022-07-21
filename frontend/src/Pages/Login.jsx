@@ -45,7 +45,8 @@ function Login() {
       )
       .then(function (response) {
         console.log(response);
-        window.location = "/trade";
+        localStorage.setItem("utilisateur",response.data.utilisateur)
+        window.location = "/dashboard";
       })
       .catch(function (error) {
         const mailNotExist = error.response.data;

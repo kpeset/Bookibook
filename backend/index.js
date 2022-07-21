@@ -6,7 +6,9 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const successRoute = require("./routes/success");
-const getUsersRoute = require("./routes/getUsers")
+const getUsersRoute = require("./routes/getUsers");
+const addBookRoute = require("./routes/addBook");
+const gotBookRoute = require("./routes/gotBook");
 
 
 
@@ -33,6 +35,8 @@ app.use(cookieParser());
 app.use("/api", authRoute);
 app.use("/api/success", successRoute);
 app.use("/api/users", getUsersRoute);
+app.use("/api/addBook/", addBookRoute);
+app.use("/api/gotBook/", gotBookRoute);
 
 
 

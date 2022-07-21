@@ -6,12 +6,17 @@ function Provider({ children }) {
   const [infoBook, setInfoBook] = useState({
     isbn: localStorage.getItem(`isbn`)
   });
+  const [infoUser, setInfoUser] = useState({
+    email: localStorage.getItem(`email`)
+  });
 
   return (
     <Context.Provider
       value={{
         infoBook,
         setInfoBook,
+        infoUser,
+        setInfoUser,
       }}
     >
       {children}

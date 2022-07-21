@@ -8,10 +8,22 @@ import BookDetails from "./pages/BookDetails";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ExportContext from "./contexts/Contexts";
 
+import React, { useEffect, useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
+
+
+  const { infoUser, setInfoUser } = useContext(ExportContext.Context);
+
+  const myUser = localStorage.getItem("utilisateur")
+
+  useEffect(() => {
+setInfoUser(myUser)
+  }, [])
+
   return (
   
   <div>

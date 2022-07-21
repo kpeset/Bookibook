@@ -22,9 +22,8 @@ const userSchema = new mongoose.Schema({
     min: 6,
     max: 1024,
   },
-  bookiwant: [],
-  bookineed: [],
-
+bookiwant: [],
+bookigot: []
 });
 
 module.exports = mongoose.model("User", userSchema);

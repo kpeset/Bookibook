@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import axios from "axios"
 import { gsap } from "gsap";
 import("../styles/oneBookDetails.css");
 
@@ -10,22 +11,46 @@ function OneBookDetails({ book, errorImg }) {
 
   const tl = gsap.timeline();
 
-  // useEffect(() => {
-  //   tl.fromTo(leftRef.current, { y: -800 }, { y: 1, duration: 1 });
-
-  // }, []);
-
-  // useEffect(() => {
-  //   tl.fromTo(rightRef.current, { y: 800 }, { y: 1, duration: 1 });
-
-  // }, []);
-
   useEffect(() => {
     tl
 	.add('start')
 	.fromTo(leftRef.current, { y: -800 }, { y: 1, duration: 1 }, 'start')
 	.fromTo(rightRef.current, { y: 800 }, { y: 1, duration: 1 }, 'start')
   }, [])
+
+
+  const addBook = () => {
+
+    localStorage.setItem("isbn", book.industryIdentifiers[0].identifier)
+
+    axios.put(
+      "http://localhost:8080/api/addBook/",
+      {
+        email: localStorage.getItem("utilisateur"),
+        bookiwant: localStorage.getItem("isbn"),
+      },
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  const gotBook = () => {
+
+    localStorage.setItem("isbn", book.industryIdentifiers[0].identifier)
+
+    axios.put(
+      "http://localhost:8080/api/gotBook/",
+      {
+        email: localStorage.getItem("utilisateur"),
+        bookigot: localStorage.getItem("isbn"),
+      },
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
 
   return (
     <div className="onebookdetails-content">
@@ -83,7 +108,10 @@ function OneBookDetails({ book, errorImg }) {
             </h1>
           </div>
           <div className="onebookdetails-btn-add">
-            <button type="button">AJOUTER A MA LISTE</button>
+            <button type="button" onClick={addBook}>AJOUTER A MES ENVIES</button>
+          </div>
+          <div className="onebookdetails-btn-got">
+          <button type="button" onClick={gotBook}>JE POSSEDE CE LIVRE</button>
           </div>
         </div>
       </div>
