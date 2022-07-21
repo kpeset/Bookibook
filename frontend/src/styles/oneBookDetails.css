@@ -1,0 +1,60 @@
+
+
+.onebookdetails-flex {
+  display: flex;
+}
+
+.onebookdetails-border-picture {
+  background-color: var(--color-jaune);
+  height: auto;
+  width: 60vw;
+  display: flex;
+  align-items: flex-start;
+  border-top: 2rem solid var(--color-blanc);
+  border-right: 2rem solid var(--color-blanc);
+  border-left: 2rem solid var(--color-blanc);
+
+}
+
+.onebookdetails-picture img {
+  height: auto;
+  width: 10rem;
+  border-right: 1rem solid var(--color-blanc);
+  border-bottom: 1rem solid var(--color-blanc);
+
+
+  border-radius: 0 0 100px 0;
+}
+
+.onebookdetails-title h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  padding: 0 0 0 6rem;
+}
+
+.onebookdetails-auteur,
+.onebookdetails-date,
+.onebookdetails-editeur,
+.onebookdetails-categorie {
+  padding: 0 0 0 6rem;
+  font-style: italic;
+}
+
+.onebookdetails-right-part {
+  width: 40vw;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+.onebookdetails-desc {
+  background-color: var(--color-jaune);
+  border-left: 2rem solid var(--color-blanc);
+  border-bottom: 2rem solid var(--color-blanc);
+ width: 57.762vw;
+}
+
+.onebookdetails-desc p {
+  padding: 3rem 12rem 3rem 6rem;
+}

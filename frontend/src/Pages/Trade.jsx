@@ -6,7 +6,7 @@ import "../styles/trade.css";
 function Trade() {
   const [searchResult, setSearchResult] = useState([]);
   const [errorImg, setErrorImg] = useState(
-    "https://image.shutterstock.com/image-vector/block-icon-unavailable-260nw-1336706924.jpg"
+    "https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg"
   );
   const [search, setSearch] = useState("");
 

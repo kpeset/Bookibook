@@ -4,7 +4,7 @@
 
 .register-second-part {
   width: 60vw;
-  background-color: #f8c630;
+  background-color: var(--color-jaune);
   height: 70vh;
   border-radius: 0 300px 300px 0;
 }

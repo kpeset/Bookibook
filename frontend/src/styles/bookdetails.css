@@ -1,3 +1,4 @@
 .bookdetails-content {
     min-height: 70vh;
+    background-color: var(--color-blanc);
 }
