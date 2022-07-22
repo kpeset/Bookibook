@@ -5,7 +5,11 @@ import("../styles/oneBookDetails.css");
 
 function OneBookDetails({ book, errorImg }) {
   const [userList, setUserList] = useState("");
+  const [currentUserList, setCurrentUserlist] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [currentIsLoading, setCurrentIsLoading] = useState(true);
+  const [showMessenger, setShowMessenger] = useState(true);
+  const [perfectMatch, setPerfectMatch] = useState(true);
 
   const leftRef = useRef(null);
   const rightRef = useRef(null);
@@ -17,6 +21,10 @@ function OneBookDetails({ book, errorImg }) {
       .fromTo(leftRef.current, { y: -800 }, { y: 1, duration: 1 }, "start")
       .fromTo(rightRef.current, { y: 800 }, { y: 1, duration: 1 }, "start");
   }, []);
+
+  const messageToggle = () => {
+    setShowMessenger(!showMessenger);
+  };
 
   const addBook = () => {
     localStorage.setItem("isbn", book.industryIdentifiers[0].identifier);
@@ -57,6 +65,8 @@ function OneBookDetails({ book, errorImg }) {
       .catch((err) => console.log(err));
   }, []);
 
+  
+
   const listUserWithBook = () => {
     return (
       <>
@@ -76,89 +86,137 @@ function OneBookDetails({ book, errorImg }) {
             {userList.map((user) => {
               return (
                 <div className="onebookdetails-userlist-btn-contact">
-                  <button>Contacter {user.pseudo} </button>
+                  <button onClick={messageToggle}>
+                    Contacter {user.pseudo}{" "}
+                  </button>
                 </div>
               );
             })}
           </div>
-          <div className="onebookdetails-userlist-line"/>.
+          <div className="onebookdetails-userlist-line" />
         </>
       </>
     );
   };
 
+  
+
+
+
   return (
     <div className="onebookdetails-content">
-      <div className="onebookdetails-flex">
-        <div className="onebookdetails-left-part" ref={leftRef}>
-          <div className="onebookdetails-border-picture">
-            <div className="onebookdetails-picture">
-              <img
-                alt={book.title}
-                src={
-                  book.imageLinks === undefined
-                    ? errorImg
-                    : book.imageLinks && book.imageLinks.smallThumbnail
-                }
-              />
-            </div>
-            <div className="onebookdetails-about-book">
-              <div className="onebookdetails-title">
-                <h1>{book.title}</h1>
-              </div>
-              <div className="onebookdetails-auteur">
-                <h1>Auteur : {book.authors}</h1>
-              </div>
-              <div className="onebookdetails-editeur">
-                <h1>Publié par {book.publisher}</h1>
-              </div>
-              <div className="onebookdetails-date">
-                <h1>Date de publication : {book.publishedDate}</h1>
-              </div>
-              <div className="onebookdetails-categorie">
-                <h1>
-                  Catégorie :{" "}
-                  {book.categories === undefined
-                    ? "Non définie"
-                    : book.categories}
-                </h1>
-              </div>
-            </div>
-          </div>
-          <div className="onebookdetails-desc">
-            <h2>RÉSUMÉ</h2>
-            <p>
-              {book.description === undefined
-                ? "Pas de résumé."
-                : book.description}
-            </p>
-          </div>
-        </div>
+      {!showMessenger ? (
+        <div className="onebookdetails-flex">
+          <div className="onebookdetails-left-part" ref={leftRef}>
+            <div className="onebookdetails-border-form">
+              <div className="onebookdetails-about-book">
+                <h1>Envoyer un message</h1>
+                <form>
+                  <textarea />
+                  <button>ENVOYER</button>
+                </form>
 
-        <div className="onebookdetails-right-part" ref={rightRef}>
-          <div className="onebookdetails-book-status">
-            {userList.length === undefined ||
-            userList === undefined ||
-            userList.length === 0 ? (
-              <h1>
-                Oups... Aucun utilisateur ne propose se livre à l'échange.
-              </h1>
-            ) : (
-              listUserWithBook()
-            )}
+                <div className="onebookdetails-categorie"></div>
+              </div>
+            </div>
           </div>
-          <div className="onebookdetails-btn-add">
-            <button type="button" onClick={addBook}>
-              AJOUTER A MES ENVIES
-            </button>
-          </div>
-          <div className="onebookdetails-btn-got">
-            <button type="button" onClick={gotBook}>
-              JE POSSEDE CE LIVRE
-            </button>
+
+          <div className="onebookdetails-right-part" ref={rightRef}>
+            <div className="onebookdetails-book-status">
+              {userList.length === undefined ||
+              userList === undefined ||
+              userList.length === 0 ? (
+                <h1>
+                  Oups... Aucun utilisateur ne propose ce livre à l'échange.
+                </h1>
+              ) : (
+                listUserWithBook()
+              )}
+            </div>
+            <div className="onebookdetails-btn-add">
+              <button type="button" onClick={addBook}>
+                AJOUTER A MES ENVIES
+              </button>
+            </div>
+            <div className="onebookdetails-btn-got">
+              <button type="button" onClick={gotBook}>
+                JE POSSEDE CE LIVRE
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="onebookdetails-flex">
+          <div className="onebookdetails-left-part" ref={leftRef}>
+            <div className="onebookdetails-border-picture">
+              <div className="onebookdetails-picture">
+                <img
+                  alt={book.title}
+                  src={
+                    book.imageLinks === undefined
+                      ? errorImg
+                      : book.imageLinks && book.imageLinks.smallThumbnail
+                  }
+                />
+              </div>
+              <div className="onebookdetails-about-book">
+                <div className="onebookdetails-title">
+                  <h1>{book.title}</h1>
+                </div>
+                <div className="onebookdetails-auteur">
+                  <h1>Auteur : {book.authors}</h1>
+                </div>
+                <div className="onebookdetails-editeur">
+                  <h1>Publié par {book.publisher}</h1>
+                </div>
+                <div className="onebookdetails-date">
+                  <h1>Date de publication : {book.publishedDate}</h1>
+                </div>
+                <div className="onebookdetails-categorie">
+                  <h1>
+                    Catégorie :{" "}
+                    {book.categories === undefined
+                      ? "Non définie"
+                      : book.categories}
+                  </h1>
+                </div>
+              </div>
+            </div>
+            <div className="onebookdetails-desc">
+              <h2>RÉSUMÉ</h2>
+              <p>
+                {book.description === undefined
+                  ? "Pas de résumé."
+                  : book.description}
+              </p>
+            </div>
+          </div>
+
+          <div className="onebookdetails-right-part" ref={rightRef}>
+            <div className="onebookdetails-book-status">
+              {userList.length === undefined ||
+              userList === undefined ||
+              userList.length === 0 ? (
+                <h1>
+                  Oups... Aucun utilisateur ne propose se livre à l'échange.
+                </h1>
+              ) : (
+                listUserWithBook()
+              )}
+            </div>
+            <div className="onebookdetails-btn-add">
+              <button type="button" onClick={addBook}>
+                AJOUTER A MES ENVIES
+              </button>
+            </div>
+            <div className="onebookdetails-btn-got">
+              <button type="button" onClick={gotBook}>
+                JE POSSEDE CE LIVRE
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

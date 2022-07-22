@@ -16,6 +16,20 @@
 
 }
 
+.onebookdetails-border-form {
+  background-color: var(--color-jaune);
+  height: auto;
+  width: 60vw;
+  display: flex;
+  align-items: flex-start;
+  border-top: 2rem solid var(--color-blanc);
+  border-right: 2rem solid var(--color-blanc);
+  border-left: 2rem solid var(--color-blanc);
+  height: 79vh;
+
+}
+
+
 .onebookdetails-picture img {
   height: auto;
   width: 10rem;
@@ -134,4 +148,44 @@ background-color: var(--color-bleuinter);
 width: 100%;
 height: 2rem;
 background-color: var(--color-blanc);
+}
+
+.onebookdetails-border-form h1 {
+  color: var(--color-blanc);
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.onebookdetails-about-book form {
+  display: flex;
+  flex-direction: column;
+}
+
+.onebookdetails-border-form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.onebookdetails-border-form textarea{
+  border: none;
+  background-color: var(--color-jaune);
+  resize: none;
+  outline: none;
+  width: 40rem;
+  height: 26rem;
+  font-size: 2rem;
+  font-weight: 600;
+  caret-color: var(--color-noir);
+}
+
+.onebookdetails-border-form button {
+  background-color: var(--color-bleufonce);
+  color: var(--color-blanc);
+  padding: 2rem 0 2rem 0;
+  border-radius: 100px;
+  transition: 0.7s;
+}
+
+.onebookdetails-border-form button:hover {
+  background-color: var(--color-bleuinter);
 }

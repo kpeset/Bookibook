@@ -10,6 +10,8 @@ const getUsersRoute = require("./routes/getUsers");
 const addBookRoute = require("./routes/addBook");
 const gotBookRoute = require("./routes/gotBook");
 const usersBookRoute = require("./routes/usersBookRoute")
+const getCurrentUserRoute = require("./routes/getCurrentUser")
+const matchRoute = require("./routes/match")
 
 
 
@@ -39,6 +41,8 @@ app.use("/api/users", getUsersRoute);
 app.use("/api/addBook/", addBookRoute);
 app.use("/api/gotBook/", gotBookRoute);
 app.use("/api/usersBook/", usersBookRoute);
+app.use("/api/getcurrentuser/", getCurrentUserRoute);
+app.use("/api/match/", matchRoute);
 
 
 

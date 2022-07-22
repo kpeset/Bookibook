@@ -5,8 +5,8 @@ import("../styles/oneBookDetails.css");
 
 function OneBookDetails({ book, errorImg }) {
   const [userList, setUserList] = useState("");
-  const [isReady, setIsReady] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [showMessenger, setShowMessenger] = useState(false)
 
   const leftRef = useRef(null);
   const rightRef = useRef(null);
@@ -18,6 +18,10 @@ function OneBookDetails({ book, errorImg }) {
       .fromTo(leftRef.current, { y: -800 }, { y: 1, duration: 1 }, "start")
       .fromTo(rightRef.current, { y: 800 }, { y: 1, duration: 1 }, "start");
   }, []);
+
+const messageToggle = () => {
+setShowMessenger(!showMessenger)
+}
 
   const addBook = () => {
     localStorage.setItem("isbn", book.industryIdentifiers[0].identifier);
@@ -54,23 +58,43 @@ function OneBookDetails({ book, errorImg }) {
       .post("http://localhost:8080/api/usersBook/", {
         finduserbook: localStorage.getItem("isbn"),
       })
-      .then((res) => setUserList(res.data), setIsLoading(false), )
+      .then((res) => setUserList(res.data), setIsLoading(false))
       .catch((err) => console.log(err));
   }, []);
 
-
-const test = () => {
-  console.log(userList.length)
-}
-
-
-
-  const myComponent = () => {
-
-
-    
+  const listUserWithBook = () => {
     return (
-    <div className="onebookdetails-flex">
+      <>
+        <>
+          <div className="onebookdetails-userlist-text">
+            <h1>Echange possible</h1>
+          </div>
+          <div className="onebookdetails-userlist-text">
+            <h2>
+              Ce livre est actuellement sur le marché de l'échange. Même si vous
+              ne semblez pas avoir un livre qui intéresse ces utilisateurs,
+              n'hésitez pas à les contacter pour leur faire une proposition
+              d'échange.
+            </h2>
+          </div>
+          <div className="onebookdetails-flex-btn-contact">
+            {userList.map((user) => {
+              return (
+                <div className="onebookdetails-userlist-btn-contact">
+                  <button onClick={messageToggle}>Contacter {user.pseudo} </button>
+                </div>
+              );
+            })}
+          </div>
+          <div className="onebookdetails-userlist-line"/>
+        </>
+      </>
+    );
+  };
+
+  return (
+    <div className="onebookdetails-content">
+      <div className="onebookdetails-flex">
         <div className="onebookdetails-left-part" ref={leftRef}>
           <div className="onebookdetails-border-picture">
             <div className="onebookdetails-picture">
@@ -108,13 +132,25 @@ const test = () => {
           </div>
           <div className="onebookdetails-desc">
             <h2>RÉSUMÉ</h2>
-            <p></p>
+            <p>
+              {book.description === undefined
+                ? "Pas de résumé."
+                : book.description}
+            </p>
           </div>
         </div>
 
         <div className="onebookdetails-right-part" ref={rightRef}>
           <div className="onebookdetails-book-status">
-            { userList.length === undefined || userList === undefined || userList.length === 0 ? <div>Oups</div> : <div>Pas oups</div>}
+            {userList.length === undefined ||
+            userList === undefined ||
+            userList.length === 0 ? (
+              <h1>
+                Oups... Aucun utilisateur ne propose se livre à l'échange.
+              </h1>
+            ) : (
+              listUserWithBook()
+            )}
           </div>
           <div className="onebookdetails-btn-add">
             <button type="button" onClick={addBook}>
@@ -125,20 +161,9 @@ const test = () => {
             <button type="button" onClick={gotBook}>
               JE POSSEDE CE LIVRE
             </button>
-            <button type="button" onClick={test}>
-              test
-            </button>
           </div>
         </div>
       </div>
-    )
-  }
-
-
-  return (
-    <div className="onebookdetails-content">
-        {isLoading ? <div>Loading...</div> : myComponent()}
-
     </div>
   );
 }
