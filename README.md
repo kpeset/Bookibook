@@ -1,17 +1,19 @@
-## TEMPLATE
+## BOOKIBOOK
 
-Template pour React et Node.
+Plateforme de partage de livres
+
+## TECHNOS UTILISÉES
+
+· Stack M.E.R.N
+· Google Book API
 
 ## Installation & Utilisation
-
-### Initialiser le projet
-
-- Cloner le repo
-- Installer les dépendances avec npm run setup
+· Cloner le repo
+· npm run setup
 
 ### Commandes disponibles
 
-- `dev` : Permet de lancer le back et le front
-- `frontend` : Permet de lancer le front
-- `backend` : Permet de lancer le back
+- npm run dev
+- npm run frontend
+- npm run backend
 
